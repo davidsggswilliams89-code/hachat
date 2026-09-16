@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harka Chat</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f8f6;
+  color:#123d2c;
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#075c3d;
+  color:white;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.logo{
+  font-size:27px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.logo span{color:#f4c430}
+
+main{
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 12px 45px;
+}
+
+/* One card below another */
+.profiles{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.profile-card{
+  width:100%;
+  background:white;
+  border-radius:22px;
+  padding:10px 10px 18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.10);
+  border:1px solid #e5ece8;
+  overflow:hidden;
+}
+
+.profile-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border-radius:16px;
+  background:#dfe8e3;
+}
+
+.profile-info{
+  padding:12px 8px 0;
+}
+.name{
+  margin:0 0 7px;
+  font-size:25px;
+  line-height:1.15;
+  font-weight:800;
+  color:#064f35;
+}
+.location{
+  margin:0 0 14px;
+  font-size:18px;
+  color:#35594b;
+}
+.location::before{
+  content:"📍";
+  margin-right:7px;
+}
+.chat-btn,.join-btn{
+  width:100%;
+  min-height:54px;
+  border:0;
+  border-radius:30px;
+  background:#09a65d;
+  color:white;
+  font-size:20px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  transition:.2s;
+}
+.chat-btn:hover,.join-btn:hover{background:#07894e}
+.chat-btn:active,.join-btn:active{transform:scale(.98)}
+
+/* Groups */
+.group-section{
+  margin-top:45px;
+}
+.group-title{
+  text-align:center;
+  font-size:34px;
+  margin:0 0 22px;
+  color:#075c3d;
+  font-weight:800;
+}
+.groups{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.group-card{
+  background:white;
+  border-radius:22px;
+  padding:10px 10px 18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.10);
+  border:1px solid #e5ece8;
+}
+.group-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border-radius:16px;
+  background:#dfe8e3;
+}
+.group-info{padding:12px 8px 0}
+.group-name{
+  margin:0 0 7px;
+  font-size:24px;
+  color:#064f35;
+}
+.members{
+  margin:0 0 14px;
+  color:#426356;
+  font-size:17px;
+}
+
+footer{
+  background:#075c3d;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+  font-size:14px;
+}
+
+/* Mobile: exactly one card per row */
+@media(max-width:600px){
+  main{padding:12px 10px 35px}
+  header{height:62px}
+  .logo{font-size:24px}
+  .profile-card,.group-card{border-radius:19px}
+  .name{font-size:23px}
+  .location{font-size:17px}
+  .group-title{font-size:30px}
+}
+
+/* Larger screens keep the requested vertical arrangement */
+@media(min-width:601px){
+  main{max-width:560px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">Harka <span>Chat</span></div>
+</header>
+
+<main>
+  <section class="profiles">
+
+    <!-- COPY THIS CARD to add more people -->
+    <article class="profile-card">
+      <img class="profile-photo" src="images/hauwa.jpg" alt="Hauwa Ibrahim">
+      <div class="profile-info">
+        <h2 class="name">Hauwa Ibrahim</h2>
+        <p class="location">Jos, Nigeria</p>
+        <a class="chat-btn" href="chat.html?user=hauwa">💬 Chat</a>
+      </div>
+    </article>
+
+    <article class="profile-card">
+      <img class="profile-photo" src="images/amina.jpg" alt="Amina Bello">
+      <div class="profile-info">
+        <h2 class="name">Amina Bello</h2>
+        <p class="location">Kano, Nigeria</p>
+        <a class="chat-btn" href="chat.html?user=amina">💬 Chat</a>
+      </div>
+    </article>
+
+    <article class="profile-card">
+      <img class="profile-photo" src="images/fatima.jpg" alt="Fatima Usman">
+      <div class="profile-info">
+        <h2 class="name">Fatima Usman</h2>
+        <p class="location">Zaria, Nigeria</p>
+        <a class="chat-btn" href="chat.html?user=fatima">💬 Chat</a>
+      </div>
+    </article>
+
+    <article class="profile-card">
+      <img class="profile-photo" src="images/aisha.jpg" alt="Aisha Musa">
+      <div class="profile-info">
+        <h2 class="name">Aisha Musa</h2>
+        <p class="location">Kaduna, Nigeria</p>
+        <a class="chat-btn" href="chat.html?user=aisha">💬 Chat</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="group-section">
+    <h1 class="group-title">Harka Group</h1>
+
+    <div class="groups">
+
+      <!-- COPY THIS GROUP CARD to add more groups -->
+      <article class="group-card">
+        <img class="group-photo" src="images/group1.jpg" alt="Harka Group 1">
+        <div class="group-info">
+          <h2 class="group-name">Harka Group 1</h2>
+          <p class="members">👥 1.2k members</p>
+          <a class="join-btn" href="group.html?id=1">👥 Join our group now</a>
+        </div>
+      </article>
+
+      <article class="group-card">
+        <img class="group-photo" src="images/group2.jpg" alt="Harka Group 2">
+        <div class="group-info">
+          <h2 class="group-name">Harka Group 2</h2>
+          <p class="members">👥 856 members</p>
+          <a class="join-btn" href="group.html?id=2">👥 Join our group now</a>
+        </div>
+      </article>
+
+      <article class="group-card">
+        <img class="group-photo" src="images/group3.jpg" alt="Harka Group 3">
+        <div class="group-info">
+          <h2 class="group-name">Harka Group 3</h2>
+          <p class="members">👥 2.1k members</p>
+          <a class="join-btn" href="group.html?id=3">👥 Join our group now</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  Harka Chat • Connect • Chat • Make Friends
+</footer>
+</body>
+</html>
