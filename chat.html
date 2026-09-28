@@ -24,23 +24,24 @@ button:disabled{opacity:.6}.notice{text-align:center;font-size:11px;color:#71807
 <body>
 <header><a class="back" href="index.html" aria-label="Back">←</a><div class="title">Harka <span>Chat</span></div></header>
 <div class="chat-wrap">
-  <div class="profile"><img id="profilePhoto" src="images/hauwa.jpg" alt=""><div><div class="profile-name" id="profileName">Hauwa Ibrahim</div><div class="ai-label">●Hauwa Ibrahim</div></div></div>
+  <div class="profile"><img id="profilePhoto" src="hauwa.png" alt=""><div><div class="profile-name" id="profileName">Hauwa Ibrahim</div><div class="ai-label" id="aiLabel">●Hauwa Ibrahim</div></div></div>
   <div id="messages" class="messages"></div><div id="typing" class="typing">typing…</div>
   <div class="composer"><div class="composer-inner"><input id="messageInput" type="text" maxlength="1000" placeholder="Type your message…" autocomplete="off"><button id="sendBtn">Send</button></div>
   <div class="notice">Do not share passwords, payment details, or sensitive personal information.</div></div>
 </div>
 <script>
 const profiles={
- hauwa:{name:"Hauwa Ibrahim",location:"Jos, Nigeria",photo:"images/hauwa.jpg"},
- amina:{name:"Amina Bello",location:"Kano, Nigeria",photo:"images/amina.jpg"},
- fatima:{name:"Fatima Usman",location:"Zaria, Nigeria",photo:"images/fatima.jpg"},
- aisha:{name:"Aisha Musa",location:"Kaduna, Nigeria",photo:"images/aisha.jpg"}
+ hauwa:{name:"Hauwa Ibrahim",location:"Jos, Nigeria",photo:"hauwa.png"},
+ amina:{name:"Amina Bello",location:"Kano, Nigeria",photo:"amina.jpg"},
+ fatima:{name:"Fatima Usman",location:"Zaria, Nigeria",photo:"fatima.png"},
+ aisha:{name:"Aisha Musa",location:"Kaduna, Nigeria",photo:"aisha.jpg"}
 };
 const id=new URLSearchParams(location.search).get("user")||"hauwa";
 const profile=profiles[id]||profiles.hauwa;
 document.getElementById("profileName").textContent=profile.name;
 document.getElementById("profilePhoto").src=profile.photo;
 document.getElementById("profilePhoto").alt=profile.name;
+document.getElementById("aiLabel").textContent="●"+profile.name;
 const messages=document.getElementById("messages"),input=document.getElementById("messageInput"),sendBtn=document.getElementById("sendBtn"),typing=document.getElementById("typing");
 const storageKey="harka_chat_"+id;
 let conversation=[];
